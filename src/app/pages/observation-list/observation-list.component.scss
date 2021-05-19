@@ -1,0 +1,41 @@
+table {
+	width: 95%;
+	
+}
+mat-paginator {
+	width: 95%;
+	margin: 16px auto;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.example-container {
+  width: 95%;
+  max-width: 100%;
+  margin: 16px  auto;
+  overflow: auto;
+}
+
+
+th.mat-header-cell {
+  padding: 10px;
+}
+
+td.mat-cell {
+	padding: 10px;
+	text-align: center;
+}
+
+mat-icon {
+	align-item: center;
+}
+
+.mat-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}

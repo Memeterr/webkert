@@ -1,0 +1,85 @@
+<mat-card>
+	<h1>Update code <strong>{{ observation.code }}</strong> Observation </h1>
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" class="example-form">
+
+		<div class="row">
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Subject</mat-label>
+				<input matInput name="subject" #subject maxlength="100" placeholder="Could be a device name as well" formControlName="subject" required>
+				<mat-hint align="start"><strong>Patient name</strong> </mat-hint>
+				<mat-hint align="end">{{subject.value.length}} / 100</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Code</mat-label>
+				<input matInput name="code" #code maxlength="5" placeholder="Sometimes this is called the observation 'name'." formControlName="code" required>
+				<mat-hint align="start"><strong>Describes what was observed.</strong> </mat-hint>
+				<mat-hint align="end">{{code.value.length}} / 5</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Value</mat-label>
+				<input matInput name="valuee" #valuee maxlength="100" placeholder="Could be anything" formControlName="valuee" required>
+				<mat-hint align="start"><strong>The value of the result</strong> </mat-hint>
+				<mat-hint align="end">{{valuee.value.length}} / 100</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Note</mat-label>
+				<input matInput name="note" #note maxlength="100" placeholder="Add a note" formControlName="note">
+				<mat-hint align="start"><strong>If there's any note</strong> </mat-hint>
+				<mat-hint align="end">{{note.value.length}} / 100</mat-hint>
+			</mat-form-field>
+		</div>
+		<div class="row">
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Status</mat-label>
+				<input matInput name="status" #status maxlength="100" placeholder="Could be a device name as well" formControlName="status" required>
+				<mat-hint align="start"><strong>Patient name</strong> </mat-hint>
+				<mat-hint align="end">{{status.value.length}} / 100</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Category</mat-label>
+				<input matInput name="category" #category maxlength="100" placeholder="Sometimes this is called the observation 'name'." formControlName="category" required>
+				<mat-hint align="start"><strong>Describes what was observed.</strong> </mat-hint>
+				<mat-hint align="end">{{category.value.length}} / 100</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Interpretation</mat-label>
+				<input matInput name="interpretation" #interpretation maxlength="100" placeholder="Could be anything" formControlName="interpretation" required>
+				<mat-hint align="start"><strong>The value of the result</strong> </mat-hint>
+				<mat-hint align="end">{{interpretation.value.length}} / 100</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Body site</mat-label>
+				<input matInput name="bodySite" #bodySite maxlength="100" placeholder="Add a note" formControlName="bodySite">
+				<mat-hint align="start"><strong>If there's any note</strong> </mat-hint>
+				<mat-hint align="end">{{bodySite.value.length}} / 100</mat-hint>
+			</mat-form-field>
+		</div>
+
+		<div class="rowdate">
+			<mat-form-field appearance="fill">
+				<mat-label>Effective from</mat-label>
+				<input matInput [matDatepicker]="effective" formControlName="effective" required>
+				<mat-datepicker-toggle matSuffix [for]="effective"></mat-datepicker-toggle>
+				<mat-datepicker #effective></mat-datepicker>
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Issed at</mat-label>
+				<input matInput [matDatepicker]="issued" formControlName="issued" required>
+				<mat-datepicker-toggle matSuffix [for]="issued"></mat-datepicker-toggle>
+				<mat-datepicker #issued></mat-datepicker>
+			</mat-form-field>
+		</div>
+
+		<div class="rowbut">
+			<button mat-stroked-button type="submit" class="w-25 mt-3" (click)="updateObservation.emit(form.value)" [disabled]="form.invalid">Update</button>
+		</div>
+
+	</form>
+</mat-card>

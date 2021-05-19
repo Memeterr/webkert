@@ -1,0 +1,25 @@
+.row {
+	width: 80%;
+	margin: 16px auto;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.rowdate {
+	width: 50%;
+	margin: 16px auto;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.rowbut {
+	width: 80%;
+	margin: 16px auto;
+	display: flex;
+	justify-content: flex-end;
+}
+
+mat-card {
+	width:90%;
+	margin: 16px auto;
+}

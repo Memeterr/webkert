@@ -1,0 +1,145 @@
+<div class="example-container mat-elevation-z8">
+	<mat-card>
+		<h1>List of observations </h1>
+	</mat-card>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    
+    <ng-container matColumnDef="basedOn">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sticky> basedOn </th>
+      <td mat-cell *matCellDef="let element"> {{element.basedOn}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="partOf">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> partOf </th>
+      <td mat-cell *matCellDef="let element"> {{element.partOf}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> code </th>
+      <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> subject </th>
+      <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="focus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> focus </th>
+      <td mat-cell *matCellDef="let element"> {{element.focus}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="encounter">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> encounter </th>
+      <td mat-cell *matCellDef="let element"> {{element.encounter}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="effective">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> effective </th>
+      <td mat-cell *matCellDef="let element"> {{element.effective.toDate().getFullYear() + '-' + element.effective.toDate().getMonth() + '-' + element.effective.toDate().getDate()}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="issued">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> issued </th>
+      <td mat-cell *matCellDef="let element"> {{element.issued.toDate().getFullYear() + '-' + element.issued.toDate().getMonth() + '-' + element.issued.toDate().getDate()}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="performer">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> performer </th>
+      <td mat-cell *matCellDef="let element"> {{element.performer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valuee">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> value </th>
+      <td mat-cell *matCellDef="let element"> {{element.valuee}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataAbsentReason">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> dataAbsentReason </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataAbsentReason}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="interpretation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> interpretation </th>
+      <td mat-cell *matCellDef="let element"> {{element.interpretation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> note </th>
+      <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bodySite">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> bodySite </th>
+      <td mat-cell *matCellDef="let element"> {{element.bodySite}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="method">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> method </th>
+      <td mat-cell *matCellDef="let element"> {{element.method}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="specimen">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> specimen </th>
+      <td mat-cell *matCellDef="let element"> {{element.specimen}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="device">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> device </th>
+      <td mat-cell *matCellDef="let element"> {{element.device}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="referenceRange">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> referenceRange </th>
+      <td mat-cell *matCellDef="let element"> {{element.referenceRange}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hasMember">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> hasMember </th>
+      <td mat-cell *matCellDef="let element"> {{element.hasMember}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="derivedFrom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> derivedFrom </th>
+      <td mat-cell *matCellDef="let element"> {{element.derivedFrom}} </td>
+    </ng-container>
+
+	<!-- Delete Column -->
+    <ng-container matColumnDef="star" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="delete(element.id)">
+	        <mat-icon>delete</mat-icon>
+	      </button>
+      </td>
+    </ng-container>
+
+    <!-- Details Column -->
+    <ng-container matColumnDef="det" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="getObservation.emit(element.id)" (click)="getDetailPath.emit('observation-details')">
+	        <mat-icon>open_in_new</mat-icon>
+	      </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>
+
+</div>
+<mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons></mat-paginator>

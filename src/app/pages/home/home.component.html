@@ -1,0 +1,29 @@
+<span [ngSwitch]="page">
+	<span *ngSwitchCase="'home'">
+		<app-nav (callSelectPage)="onSelect($event)"></app-nav>
+		<mat-card>
+			<h1>Kezdőlap - FHIR Observation</h1>
+			<br>
+			Készítette: Demeter Ádám - EB1SM9
+			<br>
+			
+		</mat-card>
+	</span>
+
+	<span *ngSwitchCase="'observation-list'">
+		<app-nav (callSelectPage)="onSelect($event)"></app-nav>
+		<button mat-fab class="action-btn" (click)="openDialog()">
+			<mat-icon>add</mat-icon>
+		</button>
+		<app-observation-list [observations]='observations' (getObservation)="getDetails($event)" (getDetailPath)="goToDetails($event)"></app-observation-list>
+	</span>
+
+	<span *ngSwitchCase="'observation-details'">
+		<app-nav (callSelectPage)="onSelect($event)"></app-nav>
+		<app-details *ngIf="observation" [observation]='observation' (updateObservation)="updateObservation($event)"></app-details>
+	</span>
+
+	<span *ngSwitchDefault>
+		
+	</span>
+</span>
